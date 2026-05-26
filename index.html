@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Website Sample — Template for Your Business</title>
+    <meta name="description" content="Cinematic website sample. See how your business could look online.">
+    <link rel="icon" type="image/png" href="assets/logo.png?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cinematic Canvas Background -->
+    <canvas id="gl-canvas"></canvas>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-logo">YOUR COMPANY</div>
+            <div class="loader-bar-track">
+                <div class="loader-bar-fill" id="loader-fill"></div>
+            </div>
+            <div class="loader-pct" id="loader-pct">0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="YOUR COMPANY Clinic" class="logo-img">
+                <span class="logo-text">YOUR COMPANY</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#" class="nav-link" data-scroll="1">Services</a>
+                <a href="#" class="nav-link" data-scroll="2">Specialists</a>
+                <a href="#" class="nav-link" data-scroll="3">Results</a>
+                <a href="#" class="nav-link" data-scroll="4">About Us</a>
+                <a href="#" class="nav-link" data-scroll="5">Contact</a>
+            </div>
+            <a href="tel:#" class="nav-phone">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                YOUR PHONE
+            </a>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="nav-scrim" id="nav-scrim" hidden></div>
+    <div class="nav-drawer" id="nav-drawer" hidden>
+        <div class="drawer-header">
+            <span class="logo-text">YOUR COMPANY</span>
+            <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+        </div>
+        <a href="#" class="drawer-link" data-scroll="1">Services</a>
+        <a href="#" class="drawer-link" data-scroll="2">Specialists</a>
+        <a href="#" class="drawer-link" data-scroll="3">Results</a>
+        <a href="#" class="drawer-link" data-scroll="4">About Us</a>
+        <a href="#" class="drawer-link" data-scroll="5">Contact</a>
+        <div class="drawer-phone">
+            <a href="tel:#">YOUR PHONE</a>
+        </div>
+    </div>
+
+    <!-- UI Layer -->
+    <div id="ui-layer">
+        <div class="stage">
+
+            <!-- SECTION 0: Hero -->
+            <section class="page" data-index="0">
+                <div class="page-inner hero-inner">
+                    <div class="hero-content">
+                        <div class="reveal-3d">
+                            <div class="badge">YOUR BRAND • YOUR NICHE • YOUR SPECIALTY</div>
+                        </div>
+                        <h1 class="hero-title reveal-3d">
+                            YOUR COMPANY<br><span class="gradient-text">NAME HERE</span>
+                        </h1>
+                        <p class="hero-desc reveal-3d">Here you can write your slogan, a brief description, or a hot offer — anything you like!</p>
+                        <div class="hero-cta reveal-3d">
+                            <a href="#" class="btn-primary" data-scroll="5">Custom Button</a>
+                            <a href="#" class="btn-outline" data-scroll="1">Your Links</a>
+                        </div>
+                        <div class="hero-stats reveal-3d">
+                            <div class="stat">
+                                <span class="stat-num">12+</span>
+                                <span class="stat-label">Years of Experience</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat">
+                                <span class="stat-num">15 000+</span>
+                                <span class="stat-label">Happy Clients</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat">
+                                <span class="stat-num">4.9</span>
+                                <span class="stat-label">Google Rating</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 1: Services -->
+            <section class="page" data-index="1">
+                <div class="page-inner">
+                    <div class="reveal-3d"><div class="badge">Your Services</div></div>
+                    <h2 class="section-title reveal-3d">Your <span class="gradient-text">Services</span></h2>
+                    <p class="section-desc reveal-3d">Here you can describe your offerings as shown in the examples below.</p>
+                    <div class="services-grid">
+                        <div class="service-card reveal-3d" id="svc-injection">
+                            <div class="svc-icon">💉</div>
+                            <h3>Injectable Aesthetics</h3>
+                            <p>Botox, dermal fillers, biorevitalization, mesotherapy, thread lifting</p>
+                            <span class="svc-price">from $250</span>
+                        </div>
+                        <div class="service-card reveal-3d" id="svc-hardware">
+                            <div class="svc-icon">⚡</div>
+                            <h3>Advanced Aesthetics</h3>
+                            <p>SMAS Lifting, RF lifting, BBL photorejuvenation, microcurrent therapy, laser resurfacing</p>
+                            <span class="svc-price">from $300</span>
+                        </div>
+                        <div class="service-card reveal-3d" id="svc-laser">
+                            <div class="svc-icon">✨</div>
+                            <h3>Laser Treatments</h3>
+                            <p>Laser hair removal, pigmentation removal, acne treatment, vascular therapy</p>
+                            <span class="svc-price">from $200</span>
+                        </div>
+                        <div class="service-card reveal-3d" id="svc-face">
+                            <div class="svc-icon">🌿</div>
+                            <h3>Skincare Programs</h3>
+                            <p>HydraFacial, chemical peels, deep cleansing facials, alginate masks, skin care</p>
+                            <span class="svc-price">from $250</span>
+                        </div>
+                        <div class="service-card reveal-3d" id="svc-body">
+                            <div class="svc-icon">🦋</div>
+                            <h3>Body Contouring</h3>
+                            <p>CoolSculpting, LPG massage, pressotherapy, body wraps, cellulite reduction programs</p>
+                            <span class="svc-price">from $350</span>
+                        </div>
+                        <div class="service-card reveal-3d" id="svc-antiage">
+                            <div class="svc-icon">🔬</div>
+                            <h3>Anti-Aging Programs</h3>
+                            <p>Personalized rejuvenation protocols, PRP therapy, plasma lifting, IV therapy</p>
+                            <span class="svc-price">from $500</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: Specialists -->
+            <section class="page" data-index="2">
+                <div class="page-inner">
+                    <div class="reveal-3d"><div class="badge">Here you can showcase your work</div></div>
+                    <h2 class="section-title reveal-3d">Examples of <span class="gradient-text">your work</span></h2>
+                    <p class="section-desc reveal-3d">Add something that will impress everyone</p>
+                    <div class="specialists-grid">
+                        <div class="specialist-card reveal-3d">
+                            <div class="spec-avatar">ER</div>
+                            <h3>Elena Rodriguez</h3>
+                            <p class="spec-title">Medical Director, Board-Certified Dermatologist</p>
+                            <p class="spec-exp">Experience: 18 years</p>
+                            <div class="spec-tags">
+                                <span>Injectables</span>
+                                <span>Anti-aging</span>
+                                <span>Threads</span>
+                            </div>
+                        </div>
+                        <div class="specialist-card reveal-3d">
+                            <div class="spec-avatar">AM</div>
+                            <h3>Ashley Martinez</h3>
+                            <p class="spec-title">Aesthetic Physician, Laser Specialist</p>
+                            <p class="spec-exp">Experience: 12 years</p>
+                            <div class="spec-tags">
+                                <span>Laser</span>
+                                <span>BBL</span>
+                                <span>Pigmentation</span>
+                            </div>
+                        </div>
+                        <div class="specialist-card reveal-3d">
+                            <div class="spec-avatar">DS</div>
+                            <h3>David Sullivan</h3>
+                            <p class="spec-title">Board-Certified Dermatologist, Trichologist</p>
+                            <p class="spec-exp">Experience: 15 years</p>
+                            <div class="spec-tags">
+                                <span>Trichology</span>
+                                <span>PRP</span>
+                                <span>Dermatology</span>
+                            </div>
+                        </div>
+                        <div class="specialist-card reveal-3d">
+                            <div class="spec-avatar">MV</div>
+                            <h3>Maria Vega</h3>
+                            <p class="spec-title">Aesthetic Physician, Advanced Technology Specialist</p>
+                            <p class="spec-exp">Experience: 10 years</p>
+                            <div class="spec-tags">
+                                <span>SMAS</span>
+                                <span>RF</span>
+                                <span>HydraFacial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: Results / Gallery -->
+            <section class="page" data-index="3">
+                <div class="page-inner">
+                    <div class="reveal-3d"><div class="badge">About Us</div></div>
+                    <h2 class="section-title reveal-3d">About <span class="gradient-text">Us</span></h2>
+                    <p class="section-desc reveal-3d">Real results, proven expertise, and glowing client testimonials</p>
+                    <div class="results-grid">
+                        <div class="result-card reveal-3d">
+                            <div class="result-number">98%</div>
+                            <p>Client satisfaction rate after the first treatment course</p>
+                        </div>
+                        <div class="result-card reveal-3d">
+                            <div class="result-number">5 000+</div>
+                            <p>Successful Botox procedures performed in the past year</p>
+                        </div>
+                        <div class="result-card reveal-3d">
+                            <div class="result-number">87%</div>
+                            <p>Of clients return for repeat treatments</p>
+                        </div>
+                        <div class="result-card reveal-3d">
+                            <div class="result-number">300+</div>
+                            <p>Five-star reviews on Google Maps</p>
+                        </div>
+                    </div>
+                    <div class="testimonials reveal-3d">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Incredible results after my biorevitalization course! My skin is glowing, and the wrinkles are practically gone. Dr. Rodriguez is a true professional."</p>
+                            <div class="testimonial-author">
+                                <strong>Irene K.</strong>
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"I completed a laser hair removal course — it was quick, painless, and the results exceeded all my expectations. This clinic is truly top-notch!"</p>
+                            <div class="testimonial-author">
+                                <strong>Alex D.</strong>
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: About -->
+            <section class="page" data-index="4">
+                <div class="page-inner">
+                    <div class="reveal-3d"><div class="badge">Special Offers</div></div>
+                    <h2 class="section-title reveal-3d">Current <span class="gradient-text">promotions \u0026 programs</span></h2>
+                    <p class="section-desc reveal-3d">Exclusive offers and packages for our valued clients</p>
+                    <div class="about-grid">
+                        <div class="about-card reveal-3d">
+                            <div class="about-icon">🏥</div>
+                            <h3>Medical License</h3>
+                            <p>All procedures are performed in a fully licensed medical facility in full compliance with safety standards.</p>
+                        </div>
+                        <div class="about-card reveal-3d">
+                            <div class="about-icon">🔬</div>
+                            <h3>Authentic Products</h3>
+                            <p>We use only FDA-approved products from authorized distributors: Allergan, Galderma, Merz.</p>
+                        </div>
+                        <div class="about-card reveal-3d">
+                            <div class="about-icon">⚙️</div>
+                            <h3>State-of-the-Art Equipment</h3>
+                            <p>Sciton BBL, Ulthera, Candela, Lumenis — the gold standard in aesthetic technology.</p>
+                        </div>
+                        <div class="about-card reveal-3d">
+                            <div class="about-icon">🤝</div>
+                            <h3>Personalized Approach</h3>
+                            <p>Every visit begins with an in-depth consultation and VISIA skin analysis.</p>
+                        </div>
+                        <div class="about-card reveal-3d">
+                            <div class="about-icon">🌟</div>
+                            <h3>Premium Service</h3>
+                            <p>Luxurious atmosphere, personal concierge, flexible scheduling, and online booking 24/7.</p>
+                        </div>
+                        <div class="about-card reveal-3d">
+                            <div class="about-icon">📜</div>
+                            <h3>Guaranteed Results</h3>
+                            <p>We provide a full treatment protocol and stand behind our results — complimentary touch-ups within 14 days.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: Contact -->
+            <section class="page" data-index="5">
+                <div class="page-inner">
+                    <div class="reveal-3d"><div class="badge">Contact</div></div>
+                    <h2 class="section-title reveal-3d">Let's start <span class="gradient-text">working together</span></h2>
+                    <p class="section-desc reveal-3d">Add your contacts, address, and social media so clients can reach you</p>
+                    <div class="contact-grid">
+                        <div class="contact-form-wrap reveal-3d">
+                            <form class="contact-form" id="contact-form">
+                                <div class="form-row">
+                                    <input type="text" placeholder="Your name" required id="form-name">
+                                    <input type="tel" placeholder="+1 (___) ___-____" required id="form-phone">
+                                </div>
+                                <select id="form-service">
+                                    <option value="" disabled selected>Your industry</option><option>Healthcare / Beauty</option><option>Restaurants / HoReCa</option><option>Construction / Remodeling</option><option>Architecture / Design</option><option>IT / Consulting</option><option>Auto Business / Detailing</option><option>Fitness / Sports</option><option>Education</option><option>Tourism / Hotels</option><option>Manufacturing</option><option>Other</option>
+                                </select>
+                                <textarea placeholder="Your questions or comments..." rows="3" id="form-message"></textarea>
+                                <button type="submit" class="btn-primary btn-submit" id="btn-submit">Order Website</button>
+                            </form>
+                        </div>
+                        <div class="contact-info reveal-3d">
+                            <div class="info-block">
+                                <div class="info-icon">📍</div>
+                                <div>
+                                    <strong>Address</strong>
+                                    <p>1234 Collins Ave, South Beach, Miami, FL 33139</p>
+                                </div>
+                            </div>
+                            <div class="info-block">
+                                <div class="info-icon">📞</div>
+                                <div>
+                                    <strong>Phone</strong>
+                                    <p><a href="tel:#">YOUR PHONE</a></p>
+                                </div>
+                            </div>
+                            <div class="info-block">
+                                <div class="info-icon">🕐</div>
+                                <div>
+                                    <strong>Business Hours</strong>
+                                    <p>Mon–Sat: 9:00 AM – 9:00 PM<br>Sun: 10:00 AM – 6:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="info-block">
+                                <div class="info-icon">💬</div>
+                                <div>
+                                    <strong>Messengers</strong>
+                                    <p>
+                                        <a href="#">WhatsApp</a> · 
+                                        <a href="#">Telegram</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="license-badge">
+                                <span>🏥</span> Licensed Medical Facility
+                            </div>
+                        </div>
+                    </div>
+                <div style="text-align:center;margin-top:32px"><a href="https://unityspirit.github.io/global-plus-en/#page-4" class="btn-primary" style="font-size:16px;padding:14px 40px;display:inline-block;text-decoration:none">BACK TO MAIN PAGE</a></div></div></section></div></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
