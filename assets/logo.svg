@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="gl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A94B"/>
+      <stop offset="100%" stop-color="#b8912f"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#1a1a2e"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="url(#gl)" stroke-width="2"/>
+  <!-- Syringe / injection symbol -->
+  <rect x="88" y="50" width="24" height="60" rx="4" fill="none" stroke="url(#gl)" stroke-width="2.5"/>
+  <!-- Syringe plunger -->
+  <line x1="100" y1="35" x2="100" y2="55" stroke="url(#gl)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="90" y1="35" x2="110" y2="35" stroke="url(#gl)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Syringe needle -->
+  <line x1="100" y1="110" x2="100" y2="130" stroke="url(#gl)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Sparkle / beauty elements -->
+  <circle cx="65" cy="70" r="4" fill="url(#gl)"/>
+  <circle cx="55" cy="85" r="2.5" fill="url(#gl)" opacity="0.7"/>
+  <circle cx="135" cy="70" r="4" fill="url(#gl)"/>
+  <circle cx="145" cy="85" r="2.5" fill="url(#gl)" opacity="0.7"/>
+  <!-- Leaf / natural beauty -->
+  <path d="M60,120 Q75,100 80,120 Q75,140 60,120Z" fill="url(#gl)" opacity="0.6"/>
+  <path d="M140,120 Q125,100 120,120 Q125,140 140,120Z" fill="url(#gl)" opacity="0.6"/>
+  <!-- Stars -->
+  <polygon points="100,140 102,148 110,148 104,153 106,161 100,156 94,161 96,153 90,148 98,148" fill="url(#gl)" opacity="0.8"/>
+</svg>
