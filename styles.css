@@ -13,15 +13,7 @@
   --teal: #7abfb5;
   --card-bg: rgba(10, 10, 18, 0.75);
   --card-border: rgba(201, 169, 110, 0.35);
-  --ts:
-    -2px -2px 0 #000, 2px -2px 0 #000,
-    -2px  2px 0 #000, 2px  2px 0 #000,
-     0   -2px 0 #000, 0    2px 0 #000,
-    -2px  0   0 #000, 2px  0   0 #000,
-    -1px -1px 0 #000, 1px -1px 0 #000,
-    -1px  1px 0 #000, 1px  1px 0 #000,
-     0   -1px 0 #000, 0    1px 0 #000,
-    -1px  0   0 #000, 1px  0   0 #000;
+  --ts: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000, 0 0 6px rgba(0,0,0,.7);
   --shadow-light: 0 0 3px 3px rgba(201,169,110,.08), 0 0 8px 4px rgba(201,169,110,.04);
   --radius: 16px;
   --font-body: 'Manrope', sans-serif;
@@ -233,8 +225,7 @@ p, h1, h2, h3, span:not(.gradient-text), a, button, label, strong, li {
   background-clip: text;
   text-shadow: none !important;
   -webkit-text-stroke: 0;
-  filter: drop-shadow(-2px -2px 0 #000) drop-shadow(2px -2px 0 #000)
-          drop-shadow(-2px 2px 0 #000) drop-shadow(2px 2px 0 #000);
+  filter: drop-shadow(0 1px 2px #000) drop-shadow(0 0 4px rgba(0,0,0,.5));
 }
 
 /* ── Section Titles ── */
