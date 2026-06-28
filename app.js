@@ -70,7 +70,7 @@ const PRELOADER_THRESHOLD = 15;
       loaderPct.textContent = visualPct + '%';
       if (realPct >= PRELOADER_THRESHOLD) {
         preloaderDismissed = true;
-        loader.classList.add('hidden');
+        loader.style.transition='opacity 0.7s';loader.style.opacity='0';setTimeout(function(){loader.style.display='none'},700);
         const slb = document.getElementById('siteLoadingBar');
         setTimeout(() => { if(slb) slb.style.opacity='1';slb.style.visibility='visible'; }, 600);
       }
@@ -217,7 +217,7 @@ const PRELOADER_THRESHOLD = 15;
     pages[0].classList.add('is-active');
 
     // Hide loader
-    if (!preloaderDismissed) { loader.classList.add('hidden'); }
+    if (!preloaderDismissed) { loader.style.transition='opacity 0.7s';loader.style.opacity='0';setTimeout(function(){loader.style.display='none'},700); }
     const slb = document.getElementById('siteLoadingBar');
     const slbTxt = document.getElementById('siteLoadingText');
     if (slbTxt) slbTxt.textContent = 'Loading complete';
