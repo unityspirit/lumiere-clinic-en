@@ -64,6 +64,7 @@ const PRELOADER_THRESHOLD = 15;
 
   function updateLoader() {
     const realPct = Math.min(100, Math.round((loaded / TOTAL_FRAMES) * 100));
+    if (!preloaderDismissed) {
       const visualPct = Math.min(Math.round((realPct / PRELOADER_THRESHOLD) * 100), 100);
       loaderFill.style.width = visualPct + '%';
       loaderPct.textContent = visualPct + '%';
