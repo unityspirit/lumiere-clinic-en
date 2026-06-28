@@ -32,6 +32,8 @@
   const frames = new Array(TOTAL_FRAMES);
   let loaded = 0;
   let isReady = false;
+let preloaderDismissed = false;
+const PRELOADER_THRESHOLD = 15;
   let currentFrame = 0;
   let targetFrame = 0;
 
@@ -61,9 +63,24 @@
   }
 
   function updateLoader() {
-    const pct = Math.min(100, Math.round((loaded / TOTAL_FRAMES) * 100));
-    loaderFill.style.width = pct + '%';
-    loaderPct.textContent = pct + '%';
+    const realPct = Math.min(100, Math.round((loaded / TOTAL_FRAMES) * 100));
+    if (!preloaderDismissed) {
+      const visualPct = Math.min(Math.round((realPct / PRELOADER_THRESHOLD) * 100), 100);
+      loaderFill.style.width = visualPct + '%';
+      loaderPct.textContent = visualPct + '%';
+      if (realPct >= PRELOADER_THRESHOLD) {
+        preloaderDismissed = true;
+        loader.classList.add('hidden');
+        const slb = document.getElementById('siteLoadingBar');
+        setTimeout(() => { if(slb) slb.classList.add('active'); }, 600);
+      }
+    } else {
+      const fill = document.getElementById('siteLoadingFillInner');
+      const txt = document.getElementById('siteLoadingText');
+      const phase2Pct = Math.round(((realPct - PRELOADER_THRESHOLD) / (100 - PRELOADER_THRESHOLD)) * 100);
+      if (fill) fill.style.width = phase2Pct + '%';
+      if (txt) txt.textContent = 'Loading video ' + realPct + '%';
+    }
   }
 
   async function loadAllFrames() {
@@ -200,7 +217,11 @@
     pages[0].classList.add('is-active');
 
     // Hide loader
-    loader.classList.add('hidden');
+    if (!preloaderDismissed) { loader.classList.add('hidden'); }
+    const slb = document.getElementById('siteLoadingBar');
+    const slbTxt = document.getElementById('siteLoadingText');
+    if (slbTxt) slbTxt.textContent = 'Loading complete';
+    setTimeout(() => { if(slb) { slb.classList.remove('active'); slb.classList.add('done'); } }, 800);
     setTimeout(() => { loader.style.display = 'none'; }, 700);
   }
 
