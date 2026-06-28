@@ -64,7 +64,6 @@ const PRELOADER_THRESHOLD = 15;
 
   function updateLoader() {
     const realPct = Math.min(100, Math.round((loaded / TOTAL_FRAMES) * 100));
-    if (!preloaderDismissed) {
       const visualPct = Math.min(Math.round((realPct / PRELOADER_THRESHOLD) * 100), 100);
       loaderFill.style.width = visualPct + '%';
       loaderPct.textContent = visualPct + '%';
@@ -217,7 +216,7 @@ const PRELOADER_THRESHOLD = 15;
     pages[0].classList.add('is-active');
 
     // Hide loader
-    if (!preloaderDismissed) { loader.style.transition='opacity 0.7s';loader.style.opacity='0';setTimeout(function(){loader.style.display='none'},700); }
+    loader.style.transition='opacity 0.7s';loader.style.opacity='0';setTimeout(function(){loader.style.display='none'},700);
     const slb = document.getElementById('siteLoadingBar');
     const slbTxt = document.getElementById('siteLoadingText');
     if (slbTxt) slbTxt.textContent = 'Loading complete';
