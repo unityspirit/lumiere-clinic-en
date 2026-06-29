@@ -70,18 +70,23 @@ const PRELOADER_THRESHOLD = 15;
       loaderPct.textContent = visualPct + '%';
       if (realPct >= PRELOADER_THRESHOLD) {
         preloaderDismissed = true;
+        isReady = true;
+        drawFrame(0);
         loader.style.transition='opacity 0.7s';loader.style.opacity='0';setTimeout(function(){loader.style.display='none'},700);
         const slb = document.getElementById('siteLoadingBar');
         setTimeout(() => { if(slb) slb.style.opacity='1';slb.style.visibility='visible'; }, 600);
       }
     } else {
-      const fill = document.getElementById('slbFill');
-      const txt = document.getElementById('siteLoadingText');
-      const txt = document.getElementById('siteLoadingText');
-      const txt = document.getElementById('siteLoadingText');
+        const fill = document.getElementById('slbFill');
+        const txt = document.getElementById('siteLoadingText');
       const phase2Pct = Math.round(((realPct - PRELOADER_THRESHOLD) / (100 - PRELOADER_THRESHOLD)) * 100);
       if (fill) fill.style.width = phase2Pct + '%';
       if (txt) txt.textContent = 'Loading video ' + realPct + '%';
+    if (loaded >= TOTAL_FRAMES) {
+      if (txt) txt.textContent = 'Loading complete';
+      const sbar = document.getElementById('siteLoadingBar');
+      if (sbar) { sbar.style.opacity='0'; setTimeout(()=>{ if(sbar) sbar.remove(); }, 600); }
+    }
     }
   }
 
